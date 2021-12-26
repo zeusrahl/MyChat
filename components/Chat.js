@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Platform, KeyboardAvoidingView, Text, Keyboard } from 'react-native';
+import { View, Platform, KeyboardAvoidingView, } from 'react-native';
 import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 
 export default class Chat extends React.Component {
-
+  
+  // create this.state's objects
   constructor() {
     super();
     this.state = {
@@ -11,24 +12,25 @@ export default class Chat extends React.Component {
     }
   }
 
+  // 
   componentDidMount() {
-    let name = this.props.route.params.name; // OR ...
-    // let { name } = this.props.route.params;
+    // Load name from props, routed from "Start"
+    let name = this.props.route.params.name;
 
+    // Add's name from navigation to have "name" in the title of the page
     this.props.navigation.setOptions({ 
       title: `Welcome ${name}`,
       headerTintColor: '#212224',
     });
 
-    
-
+    // Update the state's messages
     this.setState({
         messages: [
           {
             _id: 0,
             text: `This is your chat with ${name}`,
             createdAt: new Date(),
-            system: true,
+            system: true, // makes message a "system message"
           },
           {
             _id: 1,
@@ -46,10 +48,13 @@ export default class Chat extends React.Component {
 
   onSend(messages = []) {
     this.setState(previousState => ({
+      // using the GiftedChat code, add a message to bottom of screen,
+      // sent by user
       messages: GiftedChat.append(previousState.messages, messages),
     }))
   }
 
+  // adds a new chat bubble
   renderBubble(props) {
     return (
       <Bubble 
@@ -64,6 +69,7 @@ export default class Chat extends React.Component {
   }
 
   render() {  
+    // imports the bgColor as props from "start"
     let { bgColor } = this.props.route.params;
 
     return (
@@ -80,24 +86,10 @@ export default class Chat extends React.Component {
             _id: 1,
           }}
         />
+
+        {/* adds that the textbox above the keyboard while typing */}
         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
       </View>
-      
-      // <View 
-      //   style={{
-      //     flex:1,
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //     backgroundColor: bgColor,
-      //   }}>
-      //  <Text>Chat Screen</Text>
-      // </View>
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   window: {
-//     flex: 1,
-//   }
-// });

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Alert, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 // import the screens
-import Screen1 from './components/Screen1';
-import Screen2 from './components/Screen2';
 import Start from './components/Start';
 import Chat from './components/Chat';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import bgImage from '../assets/images/BgImage.png';
 
 export default class Start extends React.Component {
@@ -11,6 +11,8 @@ export default class Start extends React.Component {
     }
   };
 
+  // function to change the state of the bgColor,
+  // to be passed to other components
   changeBgColor = (newColor) => {
     this.setState({ bgColor: newColor });
   };
@@ -26,14 +28,22 @@ export default class Start extends React.Component {
     return (
       <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
-          <Text style={styles.title}>App Title</Text>
+          <Text style={styles.title}>Meet App</Text>
+          
+          {/* login view */}
           <View style={styles.box}>
+
+            {/* Textbox for username to be input */}
             <TextInput 
               style={styles.input}
               onChangeText={(name) => this.setState({name})}
               value={this.state.name}
               placeholder='Your Name'
             />
+
+            {/* Changing background color for chat screen. Each one
+            calls the function changeBgColor and sends it to the 
+            Chat.js component. */}
             <Text style={styles.choose}>Choose Background Color:</Text>
             <View style={styles.swatches}>
               <TouchableOpacity
@@ -57,14 +67,20 @@ export default class Start extends React.Component {
               >
               </TouchableOpacity>
             </View>
+
+            {/*  */}
             <Button
               color='#757083'
               width='88%'
               onPress={() => {
+
+                // the navigation tool opens the "Chat" window, and sends the state items as props to the next component.
                 this.props.navigation.navigate('Chat', {name: this.state.name, bgColor: this.state.bgColor});
               }}
               title='Start Chatting'
             />
+            {/* adds that the textbox above the keyboard while typing */}
+            { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
           </View>
         </ImageBackground>
         
