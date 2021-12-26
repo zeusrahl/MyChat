@@ -12,7 +12,6 @@ export default class Chat extends React.Component {
     }
   }
 
-  // 
   componentDidMount() {
     // Load name from props, routed from "Start"
     let name = this.props.route.params.name;

@@ -68,7 +68,7 @@ export default class Start extends React.Component {
               </TouchableOpacity>
             </View>
 
-            {/*  */}
+            {/* Login button */}
             <Button
               color='#757083'
               width='88%'
