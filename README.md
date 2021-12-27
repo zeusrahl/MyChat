@@ -14,6 +14,7 @@ My Meet App (name will change) is a chat app designed using React Native.
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
 - [Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
+- [Firebase] (https://firebase.google.com/)
 
 ## Installation
 
