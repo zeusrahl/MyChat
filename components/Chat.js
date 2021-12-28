@@ -111,8 +111,11 @@ export default class Chat extends React.Component {
   }
 
   componentWillUnmount() {
-    this.authUnsubscribe();
-    this.unsubscribe();
+    if (this.state.isConnected == false) {
+    } else {
+      this.authUnsubscribe();
+      this.unsubscribe();
+    }   
   }
 
   onChatUpdate = (querySnapshot) => {
