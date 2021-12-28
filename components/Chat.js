@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
 
 const firebase = require('firebase');
+// Required for side-effects
 require('firebase/firestore');
 require('firebase/auth');
 
