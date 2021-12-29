@@ -106,16 +106,17 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     paddingTop: 60,
-    flexGrow: 2,
-    // flexShrink: 10,
+    flexGrow: .75,
+    flexShrink: 1,
     fontWeight: '600',
     fontSize: 45,
     color: '#fff',
   },
 
   box: {
-    flexGrow: 1,
-    flexShrink: 0,
+    height: '40%',
+    // flexGrow: 1.5,
+    // flexShrink: 0,
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fff',
