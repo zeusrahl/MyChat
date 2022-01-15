@@ -28,7 +28,7 @@ export default class Start extends React.Component {
     return (
       <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
-          <Text style={styles.title}>Meet App</Text>
+          <Text style={styles.title}>MyChat App</Text>
           
           {/* login view */}
           <View style={styles.box}>
